@@ -31,7 +31,6 @@
             color: #cbd5e1;
             text-decoration: none;
             margin-bottom: 20px;
-            font-size: 16px;
         }
 
         .sidebar a:hover {
@@ -44,7 +43,6 @@
         }
 
         .stat-card {
-            border: none;
             border-radius: 18px;
             box-shadow: 0 8px 18px rgba(0,0,0,0.06);
             padding: 25px;
@@ -52,7 +50,6 @@
         }
 
         .book-card {
-            border: none;
             border-radius: 18px;
             box-shadow: 0 8px 18px rgba(0,0,0,0.06);
             transition: 0.3s;
@@ -74,8 +71,8 @@
 
 <div class="sidebar">
     <h3>LibraryPro</h3>
-    <a href="#">Dashboard</a>
-    <a href="#">Books</a>
+    <a href="/">Dashboard</a>
+    <a href="/issue/">Issue Book</a>
     <a href="/members/">Members</a>
     <a href="/transactions/">Transactions</a>
 </div>
@@ -84,43 +81,51 @@
 
     <h2 class="mb-4">Dashboard Overview</h2>
 
+    <!-- 🔥 ACTION BUTTON -->
+    <a href="/issue/" class="btn btn-primary mb-4">+ Issue Book</a> <br>
+    <a href="/return/" class="btn btn-success mb-4 ms-1">- Return Book</a>
+
+    <!-- 🔥 STATS -->
     <div class="row mb-4">
         <div class="col-md-3">
             <div class="stat-card">
-                <h5>Total Books</h5>
-                <h2>{{ books|length }}</h2>
+                <h6>Total Books</h6>
+                <h2>{{ total_books }}</h2>
             </div>
         </div>
         <div class="col-md-3">
             <div class="stat-card">
-                <h5>Available</h5>
-                <h2>{{ books|length }}</h2>
+                <h6>Available</h6>
+                <h2>{{ available_books }}</h2>
             </div>
         </div>
         <div class="col-md-3">
             <div class="stat-card">
-                <h5>Borrowed</h5>
-                <h2>0</h2>
+                <h6>Borrowed</h6>
+                <h2>{{ borrowed_books }}</h2>
             </div>
         </div>
         <div class="col-md-3">
             <div class="stat-card">
-                <h5>Members</h5>
-                <h2>0</h2>
+                <h6>Members</h6>
+                <h2>{{ total_members }}</h2>
             </div>
         </div>
     </div>
 
+    <!-- SEARCH -->
     <div class="search-box mb-4">
         <form method="GET">
             <div class="input-group">
-                <input type="text" name="search" class="form-control form-control-lg"
+                <input type="text" name="search" value="{{ query }}" 
+                       class="form-control form-control-lg"
                        placeholder="Search books">
                 <button class="btn btn-dark px-4">Search</button>
             </div>
         </form>
     </div>
 
+    <!-- BOOKS -->
     <div class="row">
         {% for book in books %}
         <div class="col-md-4 mb-4">
@@ -129,7 +134,7 @@
                     <h5 class="fw-bold">{{ book.title }}</h5>
                     <p>{{ book.author }}</p>
                     <p>{{ book.category }}</p>
-                    <p>Available: {{ book.available_count }}</p>
+                    <p><strong>Available:</strong> {{ book.available_count }}</p>
                 </div>
             </div>
         </div>
