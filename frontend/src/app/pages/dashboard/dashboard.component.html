@@ -1,0 +1,87 @@
+<div class="container-fluid">
+
+    <h2 class="mb-4">
+        Dashboard
+    </h2>
+
+    <div class="row">
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow border-0">
+                <div class="card-body">
+                    <h6>Total Books</h6>
+                    <h2>{{ dashboardData.total_books }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow border-0">
+                <div class="card-body">
+                    <h6>Members</h6>
+                    <h2>{{ dashboardData.total_members }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow border-0">
+                <div class="card-body">
+                    <h6>Issued</h6>
+                    <h2>{{ dashboardData.issued_books }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow border-0">
+                <div class="card-body">
+                    <h6>Fine</h6>
+                    <h2>₹{{ dashboardData.total_fine }}</h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card shadow mt-4">
+
+        <div class="card-header fw-bold">
+            Recent Transactions
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-hover">
+
+                <thead>
+                    <tr>
+                        <th>Member</th>
+                        <th>Book</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Rahul</td>
+                        <td>Python</td>
+                        <td><span class="badge bg-success">Returned</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Arun</td>
+                        <td>Java</td>
+                        <td><span class="badge bg-warning">Issued</span></td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
