@@ -64,16 +64,24 @@
 
                 <tbody>
 
-                    <tr>
-                        <td>Rahul</td>
-                        <td>Python</td>
-                        <td><span class="badge bg-success">Returned</span></td>
-                    </tr>
+                    <tr *ngFor="let transaction of recentTransactions">
 
-                    <tr>
-                        <td>Arun</td>
-                        <td>Java</td>
-                        <td><span class="badge bg-warning">Issued</span></td>
+                        <td>{{ transaction.member__name }}</td>
+                    
+                        <td>{{ transaction.book__title }}</td>
+                    
+                        <td>
+                            <span
+                                class="badge"
+                                [class.bg-success]="transaction.status=='RETURNED'"
+                                [class.bg-warning]="transaction.status=='ISSUED'"
+                                [class.bg-danger]="transaction.status=='OVERDUE'">
+                    
+                                {{ transaction.status }}
+                    
+                            </span>
+                        </td>
+                    
                     </tr>
 
                 </tbody>

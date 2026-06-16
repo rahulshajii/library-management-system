@@ -1,1 +1,55 @@
-<p>transactions works!</p>
+
+<div class="container-fluid">
+
+    <h2 class="mb-4">
+        Transactions
+    </h2>
+
+    <table class="table table-bordered table-hover shadow">
+
+        <thead class="table-dark">
+
+            <tr>
+                <th>ID</th>
+                <th>Member</th>
+                <th>Book</th>
+                <th>Issue Date</th>
+                <th>Due Date</th>
+                <th>Return Date</th>
+                <th>Fine</th>
+                <th>Status</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let transaction of transactions">
+
+                <td>{{ transaction.id }}</td>
+                <td>{{ transaction.member_name }}</td>
+                <td>{{ transaction.book_title }}</td>
+                <td>{{ transaction.issue_date }}</td>
+                <td>{{ transaction.due_date }}</td>
+                <td>{{ transaction.return_date || '-' }}</td>
+                <td>₹{{ transaction.fine }}</td>
+
+                <td>
+                    <span
+                        class="badge"
+                        [class.bg-success]="transaction.status === 'RETURNED'"
+                        [class.bg-warning]="transaction.status === 'ISSUED'"
+                        [class.bg-danger]="transaction.status === 'OVERDUE'">
+
+                        {{ transaction.status }}
+
+                    </span>
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>

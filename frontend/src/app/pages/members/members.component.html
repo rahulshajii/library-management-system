@@ -1,1 +1,37 @@
-<p>members works!</p>
+<div class="container-fluid">
+
+    <h2 class="mb-4">
+        Members
+    </h2>
+
+    <table class="table table-bordered table-hover shadow">
+
+        <thead class="table-dark">
+
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Membership ID</th>
+                <th>Status</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let member of members">
+
+                <td>{{ member.id }}</td>
+                <td>{{ member.name }}</td>
+                <td>{{ member.email }}</td>
+                <td>{{ member.membership_id }}</td>
+                <td>{{ member.membership_status }}</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>

@@ -9,6 +9,7 @@ urlpatterns = [
     # REST API
     path('api/books/', include('books.urls')),
     path('api/members/', include('members.urls')),
+    path('api/transactions/', include('transactions.urls')),
     path('api/dashboard/', dashboard_api, name='dashboard_api'),
 
     # Template Views

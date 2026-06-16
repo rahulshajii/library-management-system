@@ -1,1 +1,80 @@
-<p>issue-book works!</p>
+<div class="container-fluid">
+
+    <h2 class="mb-4">
+        Issue Book
+    </h2>
+
+    <div class="card shadow p-4">
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Select Member
+            </label>
+
+            <select
+                class="form-select"
+                [(ngModel)]="selectedMember">
+
+                <option value="">Choose Member</option>
+
+                <option
+                    *ngFor="let member of members"
+                    [value]="member.id">
+
+                    {{ member.name }}
+
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Select Book
+            </label>
+
+            <select
+                class="form-select"
+                [(ngModel)]="selectedBook">
+
+                <option value="">Choose Book</option>
+
+                <option
+                    *ngFor="let book of books"
+                    [value]="book.id">
+
+                    {{ book.title }}
+
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Due Date
+            </label>
+
+            <input
+                type="date"
+                class="form-control"
+                [(ngModel)]="dueDate">
+
+        </div>
+
+        <button
+            class="btn btn-primary"
+            (click)="issueBook()">
+
+            Issue Book
+
+        </button>
+
+    </div>
+
+</div>

@@ -1,1 +1,46 @@
-<p>return-book works!</p>
+<div class="container-fluid">
+
+    <h2 class="mb-4">
+        Return Book
+    </h2>
+
+    <div class="card shadow p-4">
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Select Issued Book
+            </label>
+
+            <select
+                class="form-select"
+                [(ngModel)]="selectedTransaction">
+
+                <option value="">
+                    Choose Transaction
+                </option>
+
+                <option
+                    *ngFor="let transaction of transactions"
+                    [value]="transaction.id">
+
+                    {{ transaction.member_name }} -
+                    {{ transaction.book_title }}
+
+                </option>
+
+            </select>
+
+        </div>
+
+        <button
+            class="btn btn-success"
+            (click)="returnBook()">
+
+            Return Book
+
+        </button>
+
+    </div>
+
+</div>
